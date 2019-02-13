@@ -1,3 +1,5 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,23 +15,8 @@
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
+    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
   </head>
@@ -43,10 +30,10 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">My projects</a>
+        <a class="nav-link" href="{% url 'projects' %}">My projects</a>
       </li>
     </ul>
 
@@ -54,6 +41,15 @@
   </div>
 </nav>
 
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+{% block content %}
 <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -61,7 +57,7 @@
     <div class="container">
       <h1 class="display-3">Welcome !</h1>
       <p>A cloud-based High Level Synthesis' Solution converting your C/C++ files into VHDL or Verilog</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Register</a></p>
+      <p><a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a></p>
     </div>
   </div>
 
@@ -90,7 +86,7 @@
   </div> <!-- /container -->
 
 </main>
-
+{% endblock %}
 <footer class="container">
   <p>&copy; Company 2017-2019</p>
 </footer>

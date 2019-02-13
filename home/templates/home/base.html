@@ -32,12 +32,15 @@
       <li class="nav-item active">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
+        {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'projects' %}">My projects</a>
+        <a class="nav-link" href="{% url 'profile' %}">Profile</a>
       </li>
     </ul>
-
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Log in</button>
+        <a href="{% url 'logout'%}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Log Out</a>
+      {% else %}
+        <a href="{% url 'login'%}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Log In</a>
+      {% endif %}
   </div>
 </nav>
 
@@ -55,9 +58,14 @@
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Welcome !</h1>
-      <p>A cloud-based High Level Synthesis' Solution converting your C/C++ files into VHDL or Verilog</p>
-      <p><a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a></p>
+        {% if user.is_authenticated %}
+            <h1 class="display-3">Welcome {{ user.username }} !</h1>
+            <p>A cloud-based High Level Synthesis' Solution converting your C/C++ files into VHDL or Verilog</p>
+        {% else %}
+            <h1 class="display-3">Welcome {{ user.username }} !</h1>
+            <p>A cloud-based High Level Synthesis' Solution converting your C/C++ files into VHDL or Verilog</p>
+            <p><a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a></p>
+        {% endif %}
     </div>
   </div>
 

@@ -1,8 +1,18 @@
-{% extends "home/base.html" %}
+{% extends "users/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-  <h1>Profile of {{user.username}}</h1>
+ <div class="media">
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username }}</h2>
+      <p class="text-secondary">{{ user.username }}'s Projects</p>
+    </div>
+  </div>
+  <p><a class="btn btn-primary" href="{% url 'new_project' %}" role="button">Create a new project</a></p>
+  <!-- FORM HERE -->
 </div>
+
+
+
 
 {% endblock content %}

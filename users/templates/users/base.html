@@ -1,5 +1,4 @@
 {% load static %}
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +14,7 @@
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css" integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'home/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/main.css' %}">
 
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
@@ -39,7 +38,7 @@
     </ul>
         <a href="{% url 'logout'%}" class="btn btn-outline-success btn-sm" role="button" aria-pressed="true">Log Out</a>
       {% else %}
-        <a href="{% url 'login'%}" class="btn btn-primary btn-sm" role="button" aria-pressed="true">Log In</a>
+        <a href="{% url 'login'%}" class="btn btn-outline-primary btn-sm" role="button" aria-pressed="true">Log In</a>
       {% endif %}
   </div>
 </nav>
@@ -73,19 +72,17 @@
     <!-- Example row of columns -->
     <div class="row">
       <div class="col-md-4">
-        <h2>Heading</h2>
+        <h2>VivadoHLS</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
       </div>
       <div class="col-md-4">
-        <h2>Heading</h2>
+        <h2>Django</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+
       </div>
       <div class="col-md-4">
         <h2>Heading</h2>
         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
       </div>
     </div>
 
